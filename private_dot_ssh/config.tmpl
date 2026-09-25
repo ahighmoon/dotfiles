@@ -1,9 +1,10 @@
 Host github.com
   User git
   IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
 {{- if .isWork }}
 
 Host code.byted.org
   User git
-  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_rsa
 {{- end }}
