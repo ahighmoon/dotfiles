@@ -1,0 +1,9 @@
+Host github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+{{- if .isWork }}
+
+Host code.byted.org
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+{{- end }}

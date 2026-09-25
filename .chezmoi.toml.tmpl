@@ -1,0 +1,16 @@
+{{- $isWork := promptBoolOnce . "isWork" "这是一台公司(ByteDance)机器吗" -}}
+{{- $name := promptStringOnce . "name" "你的 Git 用户名" "Yifei Zhu" -}}
+{{- $personalEmail := promptStringOnce . "personalEmail" "你的个人 GitHub 邮箱" -}}
+{{- $workEmail := "" -}}
+{{- if $isWork -}}
+{{-   $workEmail = promptStringOnce . "workEmail" "你的公司邮箱" -}}
+{{- end -}}
+
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+persistentState = {{ printf "%s/.chezmoistate.boltdb" .chezmoi.sourceDir | quote }}
+
+[data]
+    name = {{ $name | quote }}
+    personalEmail = {{ $personalEmail | quote }}
+    workEmail = {{ $workEmail | quote }}
+    isWork = {{ $isWork }}

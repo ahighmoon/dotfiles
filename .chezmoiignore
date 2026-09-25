@@ -1,0 +1,9 @@
+# chezmoi 状态库，不纳入目标管理
+.chezmoistate.boltdb
+
+# 文档与许可，不部署到 home
+README.md
+LICENSE
+
+# TRAE Skill 目录，仅用于仓库内说明，不部署到 home
+.trae

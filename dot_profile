@@ -1,0 +1,5 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export JAVA_HOME="$HOME/Library/Java/JavaVirtualMachines/jdk-11.0.24+8/Contents/Home"
+
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"

@@ -1,0 +1,31 @@
+[user]
+	name = {{ .name | quote }}
+{{- if .isWork }}
+	email = {{ .workEmail | quote }}
+{{- else }}
+	email = {{ .personalEmail | quote }}
+{{- end }}
+
+[init]
+	defaultBranch = main
+
+[http]
+	postBuffer = 524288000
+	timeout = 600
+
+[safe]
+	directory = *
+
+{{- if .isWork }}
+
+# ===== 以下为公司 iDevops 环境专属配置，仅在 isWork = true 时生成 =====
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[lfs]
+	storage = {{ .chezmoi.homeDir }}/.idevops/git/cache/lfs
+[trace2]
+	perfTarget = {{ .chezmoi.homeDir }}/.idevops/git_logs/
+{{- end }}
