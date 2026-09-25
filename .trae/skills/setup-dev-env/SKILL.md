@@ -87,6 +87,21 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 (The `z` plugin ships with oh-my-zsh.)
 
+## Step 4.5: iTerm2 profile (colors + font)
+
+The repo ships a saved iTerm2 profile at `iterm2/Default.json` (light/dark ANSI
+colors, transparency, font `ComicShannsMonoNF-Regular 16`).
+
+1. Install the Nerd Font it uses (needed for Powerlevel10k glyphs too):
+   ```bash
+   brew install --cask font-comic-shanns-mono-nerd-font font-meslo-lg-nerd-font
+   ```
+2. Import the profile in iTerm2: Preferences → Profiles → Other Actions →
+   Import JSON Profiles → select `~/dev/dotfiles/iterm2/Default.json`.
+3. Set it as the default profile if desired.
+4. Note: the profile's `Working Directory` is hardcoded to `/Users/bytedance`;
+   change it under Profiles → General → Working Directory if the username differs.
+
 ## Step 5: SSH key setup
 
 1. Check for an existing key: `ls ~/.ssh/id_ed25519 2>/dev/null`.

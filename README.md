@@ -27,6 +27,9 @@ chezmoi apply --source ~/dev/dotfiles --persistent-state ~/dev/dotfiles/.chezmoi
 | `dot_npmrc.tmpl` | `~/.npmrc` | bnpm for work, npmjs for personal |
 | `private_dot_ssh/config.tmpl` | `~/.ssh/config` | mode 600, no private keys |
 
+`iterm2/Default.json` is a saved iTerm2 profile (colors + `ComicShannsMonoNF` font);
+import it manually via iTerm2 → Preferences → Profiles → Import JSON Profiles.
+
 ## Machine types
 
 On `chezmoi init`, you're prompted for name / personal email / whether this is a

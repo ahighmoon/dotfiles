@@ -7,3 +7,6 @@ LICENSE
 
 # TRAE Skill 目录，仅用于仓库内说明，不部署到 home
 .trae
+
+# iTerm2 Profile 资源，手动导入，不部署到 home
+iterm2
