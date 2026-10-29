@@ -1,0 +1,4 @@
+# 个人身份：只在公司机器部署，由 ~/.config/git/config 的 includeIf 在 ~/personal/dev/ 下叠加生效。
+[user]
+	name = {{ .name | quote }}
+	email = {{ .personalEmail | quote }}

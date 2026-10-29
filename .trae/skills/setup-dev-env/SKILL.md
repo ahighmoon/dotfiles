@@ -9,10 +9,12 @@ This skill bootstraps Yifei's macOS development environment from this dotfiles r
 
 ## Repository layout
 
-- `dot_zshrc`, `dot_profile` — shell config (portable, use `$HOME`)
-- `dot_gitconfig.tmpl` — Git config; work-only sections gated behind `isWork`
-- `dot_npmrc.tmpl` — npm registry (bnpm for work, npmjs for personal)
-- `private_dot_ssh/config.tmpl` — SSH config (mode 600, no private keys)
+- `dot_zshrc`, `dot_zprofile`, `dot_zlogin`, `dot_profile` — shell config (portable, use `$HOME`); `.zshrc` / `.profile` source `~/.zshrc.local` / `~/.profile.local` for machine-private settings
+- `dot_p10k.zsh`, `dot_tmux.conf`, `dot_config/ghostty/config` — prompt, tmux and Ghostty config
+- `dot_config/git/config.tmpl` — Git config at `~/.config/git/config` (identity templated by `isWork`); `~/.gitconfig` is left to tools (LFS, hooksPath, maintenance)
+- `dot_gitconfig-ahighmoon.tmpl` — personal identity for `~/personal/dev/`, work machines only
+- `create_dot_npmrc.tmpl` — npm registry (bnpm for work, npmjs for personal); created once, never overwritten
+- `private_dot_ssh/config.tmpl` — SSH config (mode 600, no private keys); private hosts go in `~/.ssh/config.local`
 - `.chezmoi.toml.tmpl` — prompts on init to fill name/email/isWork
 - `.chezmoiignore` — files not deployed to home
 
@@ -104,17 +106,17 @@ colors, transparency, font `ComicShannsMonoNF-Regular 16`).
 
 ## Step 5: SSH key setup
 
-1. Check for an existing key: `ls ~/.ssh/id_ed25519 2>/dev/null`.
+1. Check for an existing key: `ls ~/.ssh/id_ed25519_ahighmoon 2>/dev/null`.
 2. If missing, generate one (ed25519, not the legacy id_rsa):
    ```bash
-   ssh-keygen -t ed25519 -C "yifei-$(scutil --get LocalHostName 2>/dev/null || hostname)-$(date +%Y)" -f ~/.ssh/id_ed25519 -N ""
+   ssh-keygen -t ed25519 -C "yifei-$(scutil --get LocalHostName 2>/dev/null || hostname)-$(date +%Y)" -f ~/.ssh/id_ed25519_ahighmoon -N ""
    ```
 3. Print the public key and ask the user to add it to GitHub → Settings → SSH keys:
    ```bash
-   cat ~/.ssh/id_ed25519.pub
+   cat ~/.ssh/id_ed25519_ahighmoon.pub
    ```
    URL: https://github.com/settings/keys
-4. For a work machine, also add the key to the internal GitLab (code.byted.org).
+4. For a work machine, code.byted.org uses `~/.ssh/id_rsa` (see `private_dot_ssh/config.tmpl`); make sure that key exists and is added there.
 5. Verify: `ssh -T git@github.com` (expect a success greeting).
 
 ## Step 6: Node via nvm (optional, if the user needs Node)
@@ -135,6 +137,8 @@ Run through and report each item:
 - [ ] `ssh -T git@github.com` succeeds
 - [ ] `brew --version` works
 - [ ] For work machine: `ssh -T git@code.byted.org` succeeds
+- [ ] For work machine: `git lfs install` has been run (it writes LFS filters into `~/.gitconfig`)
+- [ ] Credentials, internal hosts and company tools are in `~/.zshrc.local` / `~/.profile.local` / `~/.ssh/config.local`, not in the repo
 
 ## Daily workflow (tell the user)
 
@@ -148,5 +152,5 @@ Run through and report each item:
 
 1. NEVER commit plaintext secrets or SSH private keys. Use `chezmoi add --encrypt` for secrets, or keep them out of the repo entirely.
 2. If `chezmoi apply` reports conflicts, show the diff and let the user decide (overwrite / keep / merge).
-3. Company-internal settings (bnpm, code.byted.org, iDevops LFS paths) are gated behind `isWork`; do not enable them on a personal machine.
+3. Work-only settings (bnpm, code.byted.org, GSSAPI) are gated behind `isWork`. Credentials, internal hosts and company tools go in the `*.local` files, never in this repo (it is public).
 4. Homebrew/oh-my-zsh installs can take a while — show progress, do not interrupt.

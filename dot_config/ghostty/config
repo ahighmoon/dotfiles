@@ -1,0 +1,52 @@
+# ===== 字体（沿用 iTerm2 习惯）=====
+font-family = ComicShannsMono Nerd Font
+font-size = 16
+
+# ===== 按键（对应你 iTerm2 的 Option Sends Esc+）=====
+macos-option-as-alt = true
+
+# ===== 主题 =====
+theme = GitHub Dark
+
+# ===== 窗口默认尺寸（单位是字符列/行）=====
+window-width = 140
+window-height = 40
+
+# ===== 杂项 =====
+# 关闭窗口前确认（里面有进程在跑时防误关）
+confirm-close-surface = true
+# 退出最后一个窗口时不退出 App（和 iTerm2 行为一致）
+quit-after-last-window-closed = false
+
+# ===== 追加：交互/安全/快捷键 =====
+scrollback-limit = 25000000
+mouse-hide-while-typing = true
+mouse-shift-capture = true
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+cursor-style-blink = true
+
+# 中文 fallback 保险：仅在自动 fallback 失效时兜底；平时应已自然落到 PingFang SC。
+font-codepoint-map = U+2E80-U+9FFF,U+F900-U+FAFF,U+FF00-U+FFEF=PingFang SC
+
+# 标签/分屏/配置重载/字号
+keybind = cmd+shift+left=previous_tab
+keybind = cmd+shift+right=next_tab
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+alt+left=goto_split:left
+keybind = cmd+alt+right=goto_split:right
+keybind = cmd+alt+up=goto_split:top
+keybind = cmd+alt+down=goto_split:bottom
+keybind = cmd+shift+e=equalize_splits
+keybind = cmd+shift+f=toggle_split_zoom
+keybind = cmd+shift+comma=reload_config
+keybind = cmd+plus=increase_font_size:1
+keybind = cmd+minus=decrease_font_size:1
+keybind = cmd+zero=reset_font_size
+keybind = cmd+t=text:\x02c
+keybind = cmd+w=text:\x02x
+keybind = cmd+1=text:\x021
+keybind = cmd+2=text:\x022

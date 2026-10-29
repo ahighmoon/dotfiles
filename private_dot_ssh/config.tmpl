@@ -1,10 +1,20 @@
+# 本机私有主机（内网、跳板机等）写在 ~/.ssh/config.local，不进仓库。
+# Include 必须在所有 Host 之前，否则只对某个 Host 生效。
+Include ~/.ssh/config.local
+
 Host github.com
   User git
-  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_ed25519_ahighmoon
   IdentitiesOnly yes
 {{- if .isWork }}
 
 Host code.byted.org
   User git
   IdentityFile ~/.ssh/id_rsa
+
+Host *
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials no
+  HostKeyAlgorithms +ssh-rsa
+  PubkeyAcceptedKeyTypes +ssh-rsa
 {{- end }}

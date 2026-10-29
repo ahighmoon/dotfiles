@@ -1,0 +1,42 @@
+# 由 chezmoi 管理（dotfiles 仓库）。工具自动写入的本机配置（LFS、hooksPath、maintenance 等）留在 ~/.gitconfig。
+# [user] 只写在这里：~/.gitconfig 在本文件之后读取，若也写了 [user] 会覆盖这里的身份。
+[user]
+{{- if .isWork }}
+	name = {{ .workName | quote }}
+	email = {{ .workEmail | quote }}
+{{- else }}
+	name = {{ .name | quote }}
+	email = {{ .personalEmail | quote }}
+{{- end }}
+
+[init]
+	defaultBranch = main
+
+[http]
+	postBuffer = 524288000
+	timeout = 600
+
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[safe]
+	directory = *
+
+[alias]
+	s = status
+	co = checkout
+	br = branch
+	ci = commit
+	lg = log --oneline --graph --decorate --all
+{{- if .isWork }}
+
+# 公司机器：~/personal/dev/ 下的仓切换到个人身份
+[includeIf "gitdir:~/personal/dev/"]
+	path = ~/.gitconfig-ahighmoon
+{{- end }}

@@ -10,3 +10,8 @@ LICENSE
 
 # iTerm2 Profile 资源，手动导入，不部署到 home
 iterm2
+
+# 个人身份叠加文件只在公司机器部署（个人机器默认就是个人身份）
+{{ if not .isWork }}
+.gitconfig-ahighmoon
+{{ end }}

@@ -1,0 +1,12 @@
+[ -s "$HOME/dev/emsdk/emsdk_env.sh" ] && export EMSDK_QUIET=1 && source "$HOME/dev/emsdk/emsdk_env.sh"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/usr/local/bin"
+
+
+# >>> Codex installer >>>
+export PATH="$HOME/.local/bin:$PATH"
+# <<< Codex installer <<<

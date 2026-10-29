@@ -1,5 +1,7 @@
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export JAVA_HOME="$HOME/Library/Java/JavaVirtualMachines/jdk-11.0.24+8/Contents/Home"
-
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
+# 本机私有配置（JDK 路径、公司工具等）放在 ~/.profile.local，不进仓库
+[ -f "$HOME/.profile.local" ] && . "$HOME/.profile.local"
