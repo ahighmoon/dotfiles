@@ -146,8 +146,13 @@ bindkey -M viins '^[[1;9D'  backward-word
 [ -s "$HOME/dev/emsdk/emsdk_env.sh" ] && export EMSDK_QUIET=1 && source "$HOME/dev/emsdk/emsdk_env.sh" > /dev/null 2>&1
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm (macOS Homebrew)
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+elif [ -s "$NVM_DIR/nvm.sh" ]; then
+  \. "$NVM_DIR/nvm.sh"  # This loads nvm (Linux / WSL)
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 
 # pnpm

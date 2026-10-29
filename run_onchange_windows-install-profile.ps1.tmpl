@@ -1,0 +1,22 @@
+{{- if eq .chezmoi.os "windows" -}}
+# chezmoi run_onchange script: 自动将 PowerShell 7 与 Windows PowerShell 5.1 的 $PROFILE
+# 指向 ~/.config/powershell/profile.ps1（自动适配 OneDrive / Documents / Documentos 等任意文档路径）
+# profile hash: {{ include "private_dot_config/powershell/profile.ps1" | sha256sum }}
+
+$myDocs = [Environment]::GetFolderPath('MyDocuments')
+$loader = @'
+# Managed by chezmoi — shared profile lives in ~/.config/powershell/profile.ps1
+if (Test-Path "$HOME\.config\powershell\profile.ps1") {
+    . "$HOME\.config\powershell\profile.ps1"
+}
+'@
+
+foreach ($dirName in @('PowerShell', 'WindowsPowerShell')) {
+    $dir = Join-Path $myDocs $dirName
+    if (-not (Test-Path $dir)) {
+        New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    }
+    $profilePath = Join-Path $dir 'Microsoft.PowerShell_profile.ps1'
+    Set-Content -Path $profilePath -Value $loader -Encoding UTF8
+}
+{{- end -}}

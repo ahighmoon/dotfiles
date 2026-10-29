@@ -15,3 +15,26 @@ iterm2
 {{ if not .isWork }}
 .gitconfig-ahighmoon
 {{ end }}
+
+{{ if ne .chezmoi.os "darwin" }}
+# Ghostty 仅在 macOS 部署
+.config/ghostty
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+# Windows 原生环境不部署 Unix/macOS 专属的 zsh / tmux / vim 配置
+.zshrc
+.zprofile
+.zlogin
+.profile
+.p10k.zsh
+.tmux.conf
+.vimrc
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+# 非 Windows 环境不部署 PowerShell 与 Windows Terminal 配置
+.config/powershell
+AppData
+windows-install-profile.ps1
+{{ end }}

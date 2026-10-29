@@ -9,7 +9,9 @@
 {{- end -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
+{{- if eq .chezmoi.os "darwin" }}
 persistentState = {{ printf "%s/.chezmoistate.boltdb" .chezmoi.sourceDir | quote }}
+{{- end }}
 
 [data]
     name = {{ $name | quote }}

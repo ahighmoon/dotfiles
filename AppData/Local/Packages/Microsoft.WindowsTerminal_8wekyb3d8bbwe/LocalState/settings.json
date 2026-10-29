@@ -1,0 +1,267 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.Right"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.Down"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": "togglePaneZoom",
+            "id": "User.togglePaneZoom"
+        },
+        {
+            "command": "closePane",
+            "id": "User.closePane"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "id": "User.moveFocus.Left"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "id": "User.moveFocus.Right"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "id": "User.moveFocus.Up"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.moveFocus.Down"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "initialCols": 140,
+    "initialRows": 40,
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "User.splitPane.Right",
+            "keys": "alt+d"
+        },
+        {
+            "id": "User.splitPane.Down",
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "id": "User.togglePaneZoom",
+            "keys": "ctrl+shift+z"
+        },
+        {
+            "id": "User.closePane",
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": "User.moveFocus.Left",
+            "keys": "ctrl+alt+left"
+        },
+        {
+            "id": "User.moveFocus.Right",
+            "keys": "ctrl+alt+right"
+        },
+        {
+            "id": "User.moveFocus.Up",
+            "keys": "ctrl+alt+up"
+        },
+        {
+            "id": "User.moveFocus.Down",
+            "keys": "ctrl+alt+down"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "backgroundImageOpacity": 0.47,
+            "colorScheme": "GitHub Dark",
+            "cursorShape": "bar",
+            "font": 
+            {
+                "face": "ComicShannsMono Nerd Font",
+                "size": 13
+            },
+            "historySize": 50000,
+            "opacity": 83,
+            "useAcrylic": false
+        },
+        "list": 
+        [
+            {
+                "commandline": "pwsh.exe -NoLogo",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "\u547d\u4ee4\u63d0\u793a\u7b26"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "guid": "{4e75ed4d-b748-59f3-a243-8f88b96c0eb3}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{6a633057-2c77-53b7-87a3-556fbde52b77}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{19ff1a12-a9f0-5302-bcec-d460d278d6cd}",
+                "hidden": false,
+                "name": "Ubuntu-22.04old",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{449c9a55-817c-502b-8bd4-0db04a6ff9ab}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{5c2e2cbd-2f49-5cba-92b4-90cabffcb86d}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#0D1117",
+            "black": "#484F58",
+            "blue": "#58A6FF",
+            "brightBlack": "#6E7681",
+            "brightBlue": "#79C0FF",
+            "brightCyan": "#56D4DD",
+            "brightGreen": "#56D364",
+            "brightPurple": "#D2A8FF",
+            "brightRed": "#FFA198",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#E3B341",
+            "cursorColor": "#58A6FF",
+            "cyan": "#39C5CF",
+            "foreground": "#C9D1D9",
+            "green": "#3FB950",
+            "name": "GitHub Dark",
+            "purple": "#BC8CFF",
+            "red": "#FF7B72",
+            "selectionBackground": "#264F78",
+            "white": "#B1BAC4",
+            "yellow": "#D29922"
+        }
+    ],
+    "themes": [],
+    "useAcrylicInTabRow": true
+}

@@ -1,7 +1,7 @@
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+[ -d "$HOME/Library/Android/sdk/platform-tools" ] && export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
 # 本机私有配置（JDK 路径、公司工具等）放在 ~/.profile.local，不进仓库
 [ -f "$HOME/.profile.local" ] && . "$HOME/.profile.local"

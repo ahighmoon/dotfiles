@@ -4,7 +4,13 @@ Include ~/.ssh/config.local
 
 Host github.com
   User git
+{{- if stat (joinPath .chezmoi.homeDir ".ssh/id_ed25519_ahighmoon") }}
   IdentityFile ~/.ssh/id_ed25519_ahighmoon
+{{- else if stat (joinPath .chezmoi.homeDir ".ssh/id_ed25519") }}
+  IdentityFile ~/.ssh/id_ed25519
+{{- else if stat (joinPath .chezmoi.homeDir ".ssh/id_rsa") }}
+  IdentityFile ~/.ssh/id_rsa
+{{- end }}
   IdentitiesOnly yes
 {{- if .isWork }}
 
