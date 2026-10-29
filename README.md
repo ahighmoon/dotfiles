@@ -32,11 +32,11 @@ Config is split into three layers:
 | `dot_profile` | `~/.profile` | shared: brew, Android SDK; sources `~/.profile.local` |
 | `dot_p10k.zsh` | `~/.p10k.zsh` | shared: prompt config |
 | `dot_tmux.conf` | `~/.tmux.conf` | shared |
-| `dot_config/ghostty/config` | `~/.config/ghostty/config` | shared |
-| `dot_config/git/config.tmpl` | `~/.config/git/config` | machine type: identity; shared: aliases, VS Code diff/merge |
-| `dot_config/git/ignore` | `~/.config/git/ignore` | shared |
+| `private_dot_config/ghostty/config` | `~/.config/ghostty/config` | shared |
+| `private_dot_config/git/config.tmpl` | `~/.config/git/config` | machine type: identity; shared: aliases, VS Code diff/merge |
+| `private_dot_config/git/ignore` | `~/.config/git/ignore` | shared |
 | `dot_gitconfig-ahighmoon.tmpl` | `~/.gitconfig-ahighmoon` | work machines only: personal identity under `~/personal/dev/` |
-| `create_dot_npmrc.tmpl` | `~/.npmrc` | machine type: registry; created once, never overwritten (login tokens live there) |
+| `create_private_dot_npmrc.tmpl` | `~/.npmrc` | machine type: registry; created once, never overwritten (login tokens live there) |
 | `private_dot_ssh/config.tmpl` | `~/.ssh/config` | shared: GitHub key; machine type: work host + GSSAPI; includes `~/.ssh/config.local` |
 
 `iterm2/Default.json` is a saved iTerm2 profile (colors + `ComicShannsMonoNF` font);

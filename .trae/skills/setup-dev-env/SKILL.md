@@ -10,10 +10,10 @@ This skill bootstraps Yifei's macOS development environment from this dotfiles r
 ## Repository layout
 
 - `dot_zshrc`, `dot_zprofile`, `dot_zlogin`, `dot_profile` — shell config (portable, use `$HOME`); `.zshrc` / `.profile` source `~/.zshrc.local` / `~/.profile.local` for machine-private settings
-- `dot_p10k.zsh`, `dot_tmux.conf`, `dot_config/ghostty/config` — prompt, tmux and Ghostty config
-- `dot_config/git/config.tmpl` — Git config at `~/.config/git/config` (identity templated by `isWork`); `~/.gitconfig` is left to tools (LFS, hooksPath, maintenance)
+- `dot_p10k.zsh`, `dot_tmux.conf`, `private_dot_config/ghostty/config` — prompt, tmux and Ghostty config
+- `private_dot_config/git/config.tmpl` — Git config at `~/.config/git/config` (identity templated by `isWork`); `~/.gitconfig` is left to tools (LFS, hooksPath, maintenance)
 - `dot_gitconfig-ahighmoon.tmpl` — personal identity for `~/personal/dev/`, work machines only
-- `create_dot_npmrc.tmpl` — npm registry (bnpm for work, npmjs for personal); created once, never overwritten
+- `create_private_dot_npmrc.tmpl` — npm registry (bnpm for work, npmjs for personal); created once, never overwritten
 - `private_dot_ssh/config.tmpl` — SSH config (mode 600, no private keys); private hosts go in `~/.ssh/config.local`
 - `.chezmoi.toml.tmpl` — prompts on init to fill name/email/isWork
 - `.chezmoiignore` — files not deployed to home
